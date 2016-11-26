@@ -98,6 +98,8 @@ var imageUpload= function (options) {
 					uploadButtonPressed= false;
 				});
 			});
+
+			next();
 		}
 	};
 
