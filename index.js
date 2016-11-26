@@ -5,12 +5,12 @@ var imageUpload= function (options) {
 
 	var required=['input','display','uploadTrigger','uploadHeaders','uploadUrl','success','error'];
 
-	if(!options.hasOwnProperty('input') || !options.hasOwnProperty('uploadTrigger') || !options.hasOwnProperty('display') || !options.hasOwnProperty('uploadUrl') || !options.hasOwnProperty('uploadHeaders') || !options.hasOwnProperty('uploadHeaders') || !options.hasOwnProperty('succes') || !options.hasOwnProperty('error'))
+	if(!options.hasOwnProperty('input') || !options.hasOwnProperty('uploadTrigger') || !options.hasOwnProperty('display') || !options.hasOwnProperty('uploadUrl') || !options.hasOwnProperty('uploadHeaders') || !options.hasOwnProperty('uploadHeaders') || !options.hasOwnProperty('success') || !options.hasOwnProperty('error'))
 		throw {msg:'Required properties'+required.join(',') +' not found.'};
 
 	$(options.display).addClass('no-image-added');
 
-	var profileUpload = {
+	var Upload = {
 
 		inputChangeHandle: function (ctx,next) {
 			//Profile Input Change Handler
@@ -73,6 +73,9 @@ var imageUpload= function (options) {
 						formData.append('left', ImgData.y);
 						// Main magic with files here
 						formData.append('image', $(options.input)[0].files[0]);
+						if(options.name)
+							formData.append('name', options.name);
+
 						return formData;
 					}
 					else return null;
@@ -81,7 +84,7 @@ var imageUpload= function (options) {
 					if(uploadButtonPressed === false && val)
 					{
 						uploadButtonPressed= true;
-						return profileUpload.uploadProfileImage(val);
+						return Upload.uploadProfileImage(val);
 					}
 					else
 						return null;
@@ -105,8 +108,8 @@ var imageUpload= function (options) {
 
 
 	return [
-		profileUpload.inputChangeHandle,
-		profileUpload.uploadHandler
+		Upload.inputChangeHandle,
+		Upload.uploadHandler
 	];
 };
 
