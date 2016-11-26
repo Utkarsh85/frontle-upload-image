@@ -1,0 +1,29 @@
+{
+  "name": "frontle-upload-image",
+  "version": "1.0.0",
+  "description": "Frontle upload image middleware",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "frontle",
+    "image",
+    "upload",
+    "middleware"
+  ],
+  "author": "Utkarsh85",
+  "license": "MIT",
+  "dependencies": {
+    "cropper": "^2.3.4"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Utkarsh85/frontle-upload-image.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Utkarsh85/frontle-upload-image/issues"
+  },
+  "homepage": "https://github.com/Utkarsh85/frontle-upload-image#readme"
+}
